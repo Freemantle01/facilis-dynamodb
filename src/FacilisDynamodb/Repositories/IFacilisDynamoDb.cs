@@ -7,7 +7,7 @@ using FacilisDynamodb.Entities;
 
 namespace FacilisDynamodb.Repositories
 {
-    public interface IFacilisDynamoDb<TEntity> : IDisposable where TEntity : class
+    public interface IFacilisDynamoDb<TEntity> : IDisposable where TEntity : class, IIdentity
     {
         Task<TEntity> GetAsync(IIdentity identity, CancellationToken cancellationToken = default);
         Task<IEnumerable<TEntity>> GetAllAsync(string primaryKey, CancellationToken cancellationToken = default);

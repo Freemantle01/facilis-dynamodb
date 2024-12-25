@@ -1,6 +1,6 @@
 ﻿using Amazon.Runtime;
 
-namespace FacilisDynamoDb.Credentials
+namespace FacilisDynamoDb.Extensions.DependencyInjection.Credentials
 {
     public class FakeAwsCredentials : AWSCredentials
     {

@@ -1,40 +1,20 @@
-using System.Text.Json;
 using System.Text.Json.Serialization;
-
-using Amazon.DynamoDBv2;
 
 using FacilisDynamodb.Constants;
 
-using FacilisDynamoDb.Credentials;
-
 using FacilisDynamodb.Entities;
 
+using FacilisDynamoDb.Extensions.DependencyInjection.Extensions;
 using FacilisDynamoDb.Generators;
 
-using FacilisDynamodb.Options;
 using FacilisDynamodb.Repositories;
-
-using Microsoft.Extensions.Options;
 
 WebApplicationBuilder builder = WebApplication.CreateSlimBuilder(args);
 
-builder.Services.AddScoped<IFacilisDynamoDb<TodoEntity>>(svc => 
-    new FacilisDynamoDb<TodoEntity>(
-        svc.GetRequiredService<IAmazonDynamoDB>(),
-        svc.GetRequiredService<IOptions<TableOptions>>(),
-        new JsonSerializerOptions
-        {
-            TypeInfoResolver = AppJsonSerializerContext.Default
-        },
-        svc.GetRequiredService<ILogger<FacilisDynamoDb<TodoEntity>>>()));
-builder.Services.Configure<TableOptions>(builder.Configuration.GetSection(TableOptions.SectionName));
+builder.Services.AddFacilisDynamoDb<TodoEntity>(AppJsonSerializerContext.Default);
+builder.Services.AddTableOptions(builder.Configuration);
+builder.Services.AddLocalAmazonDynamoDb(builder.Configuration.GetValue<string>("AmazonDynamoDbServiceUrl")!);
 builder.Services.AddScoped<TableGenerator>();
-builder.Services.AddScoped<IAmazonDynamoDB>(_ => new AmazonDynamoDBClient(
-    new FakeAwsCredentials(),
-    new AmazonDynamoDBConfig
-    {
-        ServiceURL = builder.Configuration.GetValue<string>("AmazonDynamoDbServiceUrl")
-    }));
 builder.Services.ConfigureHttpJsonOptions(options =>
 {
     options.SerializerOptions.TypeInfoResolverChain.Insert(0,

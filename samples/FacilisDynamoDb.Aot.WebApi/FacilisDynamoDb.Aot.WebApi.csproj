@@ -9,6 +9,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\src\FacilisDynamoDb.Extensions.DependencyInjection\FacilisDynamoDb.Extensions.DependencyInjection.csproj" />
       <ProjectReference Include="..\..\src\FacilisDynamoDb\FacilisDynamoDb.csproj" />
     </ItemGroup>
 

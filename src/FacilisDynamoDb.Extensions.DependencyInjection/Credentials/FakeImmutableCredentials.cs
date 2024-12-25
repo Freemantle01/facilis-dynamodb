@@ -1,11 +1,12 @@
 ﻿using Amazon.Runtime;
 
-namespace FacilisDynamoDb.Credentials
+namespace FacilisDynamoDb.Extensions.DependencyInjection.Credentials
 {
     public class FakeImmutableCredentials : ImmutableCredentials
     {
         public FakeImmutableCredentials() 
-            : base("accessKey",
+            : base(
+                "accessKey",
                 "secretAccessKey",
                 "token")
         {
