@@ -21,7 +21,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\FacilisDynamoDb\FacilisDynamoDb.csproj" />
     <ProjectReference Include="..\FacilisDynamoDb.Tests.Utils\FacilisDynamoDb.Tests.Utils.csproj" />
   </ItemGroup>
 

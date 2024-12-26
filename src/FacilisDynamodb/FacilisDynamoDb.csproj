@@ -8,6 +8,7 @@
         <Features>strict</Features>
         <PackageTags>aws;dynamodb;repository</PackageTags>
         <IsAotCompatible>true</IsAotCompatible>
+        <EnablePackageValidation>true</EnablePackageValidation>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="AWSSDK.DynamoDBv2" Version="3.7.404" />

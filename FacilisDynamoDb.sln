@@ -1,7 +1,5 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FacilisDynamoDb", "src\FacilisDynamoDb\FacilisDynamoDb.csproj", "{DEAF9DE3-0DDA-4479-8EC7-22434DBA530C}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{53E5C365-8707-47A0-BDAE-6D0B24BF2C7C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{F8427DBE-56BD-4F2F-A57A-FF5AE3F10BAB}"
@@ -19,16 +17,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FacilisDynamoDb.Tests", "te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FacilisDynamoDb.Tests.Utils", "tests\FacilisDynamoDb.Tests.Utils\FacilisDynamoDb.Tests.Utils.csproj", "{1FDFA4C1-EFFA-4C87-8868-7AEFF8687189}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FacilisDynamoDb", "src\FacilisDynamoDb\FacilisDynamoDb.csproj", "{1B45F91D-27B6-479C-9553-C3A0486D1146}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DEAF9DE3-0DDA-4479-8EC7-22434DBA530C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DEAF9DE3-0DDA-4479-8EC7-22434DBA530C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DEAF9DE3-0DDA-4479-8EC7-22434DBA530C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DEAF9DE3-0DDA-4479-8EC7-22434DBA530C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B7147AED-6E1F-448C-93B3-D955B94AB695}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B7147AED-6E1F-448C-93B3-D955B94AB695}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7147AED-6E1F-448C-93B3-D955B94AB695}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,12 +41,16 @@ Global
 		{1FDFA4C1-EFFA-4C87-8868-7AEFF8687189}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1FDFA4C1-EFFA-4C87-8868-7AEFF8687189}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1FDFA4C1-EFFA-4C87-8868-7AEFF8687189}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B45F91D-27B6-479C-9553-C3A0486D1146}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B45F91D-27B6-479C-9553-C3A0486D1146}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B45F91D-27B6-479C-9553-C3A0486D1146}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B45F91D-27B6-479C-9553-C3A0486D1146}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{DEAF9DE3-0DDA-4479-8EC7-22434DBA530C} = {53E5C365-8707-47A0-BDAE-6D0B24BF2C7C}
 		{B7147AED-6E1F-448C-93B3-D955B94AB695} = {F8427DBE-56BD-4F2F-A57A-FF5AE3F10BAB}
 		{F3178EA0-204B-4248-AFB5-F756582C0FD5} = {53E5C365-8707-47A0-BDAE-6D0B24BF2C7C}
 		{C75B20EF-20B1-40BB-833F-FF9E90BE4848} = {54519F12-27F9-454D-8D8E-B49678EC152C}
 		{1FDFA4C1-EFFA-4C87-8868-7AEFF8687189} = {54519F12-27F9-454D-8D8E-B49678EC152C}
+		{1B45F91D-27B6-479C-9553-C3A0486D1146} = {53E5C365-8707-47A0-BDAE-6D0B24BF2C7C}
 	EndGlobalSection
 EndGlobal
