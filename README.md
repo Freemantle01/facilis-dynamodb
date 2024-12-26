@@ -1,4 +1,4 @@
-# FacilisDynamoDb
+# [FacilisDynamoDb](https://www.nuget.org/packages/FacilisDynamoDb#readme-body-tab)
 
 ## Overview
 
@@ -11,7 +11,7 @@ FacilisDynamoDb is a simple AWS DynamoDB repository for .NET applications. It pr
 - Table management
 - Supports .NET Standard 2.0
 
-# FacilisDynamoDb.Extensions.DependencyInjection
+# [FacilisDynamoDb.Extensions.DependencyInjection](https://www.nuget.org/packages/FacilisDynamoDb.Extensions.DependencyInjection#readme-body-tab)
 
 ## Overview
 
@@ -24,7 +24,7 @@ FacilisDynamoDb.Extensions.DependencyInjection provides dependency injection ext
 - Simple configuration
 - Supports .NET Standard 2.0
 
-# FacilisDynamoDb.Tests.Utils
+# [FacilisDynamoDb.Tests.Utils](https://www.nuget.org/packages/FacilisDynamoDb.Tests.Utils/#readme-body-tab)
 
 ## Overview
 
