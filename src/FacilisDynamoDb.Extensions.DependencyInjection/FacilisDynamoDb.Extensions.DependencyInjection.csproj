@@ -1,6 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
+        <Authors>Łukasz Dyraga</Authors>
+        <Description>Simple AWS DynamoDb Repository</Description>
+        <Copyright>Copyright Łukasz Dyraga</Copyright>
+        <PackageTags>aws;dynamodb;client;di;depedency;injection</PackageTags>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <TargetFramework>netstandard2.0</TargetFramework>
         <EnablePackageValidation>true</EnablePackageValidation>
         <GenerateDocumentationFile>True</GenerateDocumentationFile>
