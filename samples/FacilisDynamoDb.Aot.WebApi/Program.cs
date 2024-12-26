@@ -1,19 +1,18 @@
 using System.Text.Json.Serialization;
 
-using FacilisDynamodb.Constants;
+using FacilisDynamoDb.Clients;
 
+using FacilisDynamodb.Constants;
 using FacilisDynamodb.Entities;
 
 using FacilisDynamoDb.Extensions.DependencyInjection.Extensions;
 using FacilisDynamoDb.Generators;
 
-using FacilisDynamodb.Repositories;
-
 WebApplicationBuilder builder = WebApplication.CreateSlimBuilder(args);
 
-builder.Services.AddFacilisDynamoDb<TodoEntity>(AppJsonSerializerContext.Default);
+builder.Services.AddFacilisDynamoDbClient<TodoEntity>(AppJsonSerializerContext.Default);
 builder.Services.AddTableOptions(builder.Configuration);
-builder.Services.AddLocalAmazonDynamoDb(builder.Configuration.GetValue<string>("AmazonDynamoDbServiceUrl")!);
+builder.Services.AddLocalAmazonDynamoDbClient(builder.Configuration.GetValue<string>("AmazonDynamoDbServiceUrl")!);
 builder.Services.AddScoped<TableGenerator>();
 builder.Services.ConfigureHttpJsonOptions(options =>
 {
@@ -30,10 +29,10 @@ await PopulateDatabaseAsync(app);
 var todosApi = app.MapGroup("/todos");
 todosApi.MapGet(
     "/",
-    async (IFacilisDynamoDb<TodoEntity> facilisDynamoDb) => await facilisDynamoDb.GetAllAsync("Note"));
+    async (IFacilisDynamoDbClient<TodoEntity> facilisDynamoDb) => await facilisDynamoDb.GetAllAsync("Note"));
 todosApi.MapGet(
     "/{id:int}",
-    async (int id, IFacilisDynamoDb<TodoEntity> facilisDynamoDb) =>
+    async (int id, IFacilisDynamoDbClient<TodoEntity> facilisDynamoDb) =>
     {
         TodoEntity? todo = await facilisDynamoDb.GetAsync(new Identity
         {
@@ -89,9 +88,9 @@ async Task PopulateDatabaseAsync(WebApplication app)
     };
     
     using IServiceScope scope = app.Services.CreateScope();
-    using IFacilisDynamoDb<TodoEntity> facilisDynamoDb = scope.ServiceProvider.GetRequiredService<IFacilisDynamoDb<TodoEntity>>();
+    using IFacilisDynamoDbClient<TodoEntity> client = scope.ServiceProvider.GetRequiredService<IFacilisDynamoDbClient<TodoEntity>>();
 
-    List<TodoEntity> notes = (await facilisDynamoDb.GetAllAsync("Note")).ToList();
+    List<TodoEntity> notes = (await client.GetAllAsync("Note")).ToList();
     if (notes.Count != 0)
     {
         return;
@@ -99,7 +98,7 @@ async Task PopulateDatabaseAsync(WebApplication app)
 
     foreach (TodoEntity sampleTodo in sampleTodos)
     {
-        await facilisDynamoDb.CreateAsync(sampleTodo);
+        await client.CreateAsync(sampleTodo);
     }
 }
 

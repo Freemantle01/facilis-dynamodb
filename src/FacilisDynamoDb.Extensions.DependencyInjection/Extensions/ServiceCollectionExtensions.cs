@@ -4,12 +4,13 @@ using System.Text.Json.Serialization.Metadata;
 
 using Amazon.DynamoDBv2;
 
+using FacilisDynamoDb.Clients;
+
 using FacilisDynamodb.Entities;
 
 using FacilisDynamoDb.Extensions.DependencyInjection.Credentials;
 
 using FacilisDynamodb.Options;
-using FacilisDynamodb.Repositories;
 
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -29,7 +30,7 @@ namespace FacilisDynamoDb.Extensions.DependencyInjection.Extensions
             return services;
         }
 
-        public static IServiceCollection AddLocalAmazonDynamoDb(
+        public static IServiceCollection AddLocalAmazonDynamoDbClient(
             this IServiceCollection services,
             string serviceUrl)
         {
@@ -49,7 +50,7 @@ namespace FacilisDynamoDb.Extensions.DependencyInjection.Extensions
             return services;
         }
 
-        public static IServiceCollection AddFacilisDynamoDb<TEntity>(
+        public static IServiceCollection AddFacilisDynamoDbClient<TEntity>(
             this IServiceCollection services,
             IJsonTypeInfoResolver jsonTypeInfoResolver) where TEntity : class, IIdentity
         {
@@ -57,21 +58,21 @@ namespace FacilisDynamoDb.Extensions.DependencyInjection.Extensions
                 ? JsonSerializerOptions.Default
                 : new JsonSerializerOptions { TypeInfoResolver = jsonTypeInfoResolver };
 
-            services.AddFacilisDynamoDb<TEntity>(jsonSerializerOptions);
+            services.AddFacilisDynamoDbClient<TEntity>(jsonSerializerOptions);
 
             return services;
         }
         
-        public static IServiceCollection AddFacilisDynamoDb<TEntity>(
+        public static IServiceCollection AddFacilisDynamoDbClient<TEntity>(
             this IServiceCollection services,
             JsonSerializerOptions jsonSerializerOptions) where TEntity : class, IIdentity
         { 
-            services.AddScoped<IFacilisDynamoDb<TEntity>>(svc =>
-                new FacilisDynamoDb<TEntity>(
+            services.AddScoped<IFacilisDynamoDbClient<TEntity>>(svc =>
+                new FacilisDynamoDbClient<TEntity>(
                     svc.GetRequiredService<IAmazonDynamoDB>(),
                     svc.GetRequiredService<IOptions<TableOptions>>(),
                     jsonSerializerOptions ?? JsonSerializerOptions.Default,
-                    svc.GetRequiredService<ILogger<FacilisDynamoDb<TEntity>>>()));
+                    svc.GetRequiredService<ILogger<FacilisDynamoDbClient<TEntity>>>()));
 
             return services;
         }

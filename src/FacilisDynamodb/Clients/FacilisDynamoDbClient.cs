@@ -20,9 +20,9 @@ using Microsoft.Extensions.Options;
 
 using Identity = FacilisDynamodb.Entities.Identity;
 
-namespace FacilisDynamodb.Repositories
+namespace FacilisDynamoDb.Clients
 {
-    public class FacilisDynamoDb<TEntity>: IFacilisDynamoDb<TEntity> 
+    public class FacilisDynamoDbClient<TEntity>: IFacilisDynamoDbClient<TEntity> 
         where TEntity: class, IIdentity
     {
         private readonly string _entityExistsCondition = 
@@ -31,13 +31,13 @@ namespace FacilisDynamodb.Repositories
         private readonly IAmazonDynamoDB _amazonDynamoDb;
         private readonly IOptions<TableOptions> _tableOptions;
         private readonly JsonSerializerOptions _jsonSerializerOptions;
-        private readonly ILogger<FacilisDynamoDb<TEntity>> _logger;
+        private readonly ILogger<FacilisDynamoDbClient<TEntity>> _logger;
         
-        public FacilisDynamoDb(
+        public FacilisDynamoDbClient(
             IAmazonDynamoDB amazonDynamoDb, 
             IOptions<TableOptions> tableOptions,
             JsonSerializerOptions jsonSerializerOptions,
-            ILogger<FacilisDynamoDb<TEntity>> logger)
+            ILogger<FacilisDynamoDbClient<TEntity>> logger)
         {
             _amazonDynamoDb = amazonDynamoDb ?? throw new ArgumentNullException(nameof(amazonDynamoDb));
             _tableOptions = tableOptions ?? throw new ArgumentNullException(nameof(tableOptions));
@@ -103,7 +103,7 @@ namespace FacilisDynamodb.Repositories
             return entity;
         }
     
-        public async Task<IEnumerable<TEntity>> GetAllAsync(string primaryKey, CancellationToken cancellationToken = default)
+        public async Task<List<TEntity>> GetAllAsync(string primaryKey, CancellationToken cancellationToken = default)
         {
             // https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LowLevelDotNetQuerying.html
         
