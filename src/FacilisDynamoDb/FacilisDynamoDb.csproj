@@ -8,11 +8,11 @@
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <TargetFrameworks>netstandard2.0;net8.0</TargetFrameworks>
         <Features>strict</Features>
-        <IsAotCompatible>true</IsAotCompatible>
         <EnablePackageValidation>true</EnablePackageValidation>
         <GenerateDocumentationFile>True</GenerateDocumentationFile>
         <!-- If all members are not documented, you can disable the compiler warnings -->
         <NoWarn>$(NoWarn);CS1591</NoWarn>
+        <IsAotCompatible Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net8.0'))">true</IsAotCompatible>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="AWSSDK.DynamoDBv2" Version="3.7.404" />
