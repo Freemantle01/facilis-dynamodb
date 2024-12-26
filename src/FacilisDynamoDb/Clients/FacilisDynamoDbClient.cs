@@ -9,6 +9,8 @@ using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.DocumentModel;
 using Amazon.DynamoDBv2.Model;
 
+using FacilisDynamoDb.Conditions;
+
 using FacilisDynamodb.Constants;
 using FacilisDynamodb.Entities;
 using FacilisDynamodb.Exceptions;
@@ -25,8 +27,6 @@ namespace FacilisDynamoDb.Clients
     public class FacilisDynamoDbClient<TEntity>: IFacilisDynamoDbClient<TEntity> 
         where TEntity: class, IIdentity
     {
-        private readonly string _entityExistsCondition = 
-            $"attribute_exists({TableConstants.PrimaryKeyName}) AND attribute_exists({TableConstants.SortKeyName})";
         private const int BatchLimit = 25;
         private readonly IAmazonDynamoDB _amazonDynamoDb;
         private readonly IOptions<TableOptions> _tableOptions;
@@ -153,7 +153,7 @@ namespace FacilisDynamoDb.Clients
             {
                 TableName = _tableOptions.Value.Name,
                 Item = Document.FromJson(JsonSerializer.Serialize(entity, _jsonSerializerOptions)).ToAttributeMap(),
-                ConditionExpression = _entityExistsCondition,
+                ConditionExpression = IdentityConditions.GetEntityExistsCondition(),
                 ReturnConsumedCapacity = ReturnConsumedCapacity.TOTAL
             };
 
@@ -184,7 +184,7 @@ namespace FacilisDynamoDb.Clients
                     { TableConstants.PrimaryKeyName, new AttributeValue { S = identity.PrimaryKey } },
                     { TableConstants.SortKeyName, new AttributeValue { S = identity.SortKey } }
                 },
-                ConditionExpression = _entityExistsCondition,
+                ConditionExpression = IdentityConditions.GetEntityExistsCondition(),
                 ReturnConsumedCapacity = ReturnConsumedCapacity.TOTAL
             };
 
