@@ -59,7 +59,7 @@ FacilisDynamoDb.Tests.Utils provides utility classes and constants to facilitate
 To include this project in your solution, add a project reference in your `.csproj` file:
 
 ```xml
-<ProjectReference Include="..\FacilisDynamoDb.Tests.Utils\FacilisDynamoDb.Tests.Utils.csproj" />
+<PackageReference Include="FacilisDynamoDb.Tests.Utils\FacilisDynamoDb.Tests.Utils" Version="1.0.0" />
 ```
 
 ## License
