@@ -10,6 +10,10 @@ namespace FacilisDynamodb.Exceptions
         {
         }
 
+        public EntityNotFoundException(string message) : base(message)
+        {
+        }
+
         public EntityNotFoundException(IIdentity identity) 
             : base($"Entity not found, primaryKey: {identity.PrimaryKey}, sortKey: {identity.SortKey}")
         {
