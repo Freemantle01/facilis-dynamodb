@@ -11,14 +11,6 @@ FacilisDynamoDb is a simple AWS DynamoDB repository for .NET applications. It pr
 - Table management
 - Supports .NET Standard 2.0
 
-## Installation
-
-To install the package, add the following `PackageReference` to your `.csproj` file:
-
-```xml
-<PackageReference Include="FacilisDynamoDb" Version="1.0.0" />
-```
-
 ## Usage
 
 ### Configuration

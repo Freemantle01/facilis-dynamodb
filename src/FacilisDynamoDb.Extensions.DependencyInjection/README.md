@@ -11,14 +11,6 @@ FacilisDynamoDb.Extensions.DependencyInjection is a simple AWS DynamoDB reposito
 - Simple configuration
 - Supports .NET Standard 2.0
 
-## Installation
-
-To install the package, add the following `PackageReference` to your `.csproj` file:
-
-```xml
-<PackageReference Include="FacilisDynamoDb.Extensions.DependencyInjection" Version="1.0.0" />
-```
-
 ## Usage
 
 ### Configuration
