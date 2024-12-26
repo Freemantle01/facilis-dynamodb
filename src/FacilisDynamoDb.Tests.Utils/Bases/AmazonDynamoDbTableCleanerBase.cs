@@ -1,14 +1,10 @@
 using System.Threading.Tasks;
 
 using Amazon.DynamoDBv2;
+using Amazon.DynamoDBv2.Model;
 
-using FacilisDynamoDb.Generators;
 using FacilisDynamoDb.Tests.Utils.Constants;
 using FacilisDynamoDb.Tests.Utils.Factories;
-
-using Microsoft.Extensions.Logging;
-
-using Moq;
 
 using Xunit;
 
@@ -29,13 +25,12 @@ namespace FacilisDynamoDb.Tests.Utils.Bases
         {
             using (AmazonDynamoDBClient client = AmazonDynamoDbClientFactory.CreateClient())
             {
-                using (var tableGenerator = new TableGenerator(
-                           client,
-                           TableOptionsFactory.Create(_tableName),
-                           new Mock<ILogger<TableGenerator>>().Object))
+                var deleteTableRequest = new DeleteTableRequest()
                 {
-                    await tableGenerator.CreateTableAsync();
-                }
+                    TableName = _tableName
+                };
+
+                _ = await client.DeleteTableAsync(deleteTableRequest);
             }
         }
     }
