@@ -14,16 +14,18 @@ using Xunit;
 
 namespace FacilisDynamoDb.Tests.Utils.Bases
 {
-    public class AmazonDynamoDbTestBase : IAsyncLifetime
+    public class AmazonDynamoDbTableCleanerBase : IAsyncLifetime
     {
         private readonly string _tableName;
 
-        public AmazonDynamoDbTestBase(string tableName = AmazonDynamoDbConstants.TableName)
+        public AmazonDynamoDbTableCleanerBase(string tableName = AmazonDynamoDbConstants.TableName)
         {
             _tableName = tableName;
         }
-        
-        public async Task InitializeAsync()
+
+        public Task InitializeAsync() => Task.CompletedTask;
+
+        public async Task DisposeAsync()
         {
             using (AmazonDynamoDBClient client = AmazonDynamoDbClientFactory.CreateClient())
             {
@@ -35,12 +37,6 @@ namespace FacilisDynamoDb.Tests.Utils.Bases
                     await tableGenerator.CreateTableAsync();
                 }
             }
-        }
-
-        public async Task DisposeAsync()
-        {
-            var cleaner = new AmazonDynamoDbTableCleanerBase(_tableName);
-            await cleaner.DisposeAsync();
         }
     }
 }

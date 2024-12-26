@@ -8,11 +8,11 @@ namespace FacilisDynamoDb.Tests.Utils.Factories
 {
     public static class TableOptionsFactory
     {
-        public static IOptions<TableOptions> Create()
+        public static IOptions<TableOptions> Create(string tableName = AmazonDynamoDbConstants.TableName)
         {
             return Options.Create(new TableOptions
             {
-                Name = AmazonDynamoDbConstants.TableName
+                Name = tableName
             });
         }
     }
