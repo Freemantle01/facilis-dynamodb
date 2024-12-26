@@ -11,14 +11,6 @@ FacilisDynamoDb is a simple AWS DynamoDB repository for .NET applications. It pr
 - Table management
 - Supports .NET Standard 2.0
 
-## Installation
-
-To install the package, add the following `PackageReference` to your `.csproj` file:
-
-```xml
-<PackageReference Include="FacilisDynamoDb" Version="1.0.0" />
-```
-
 # FacilisDynamoDb.Extensions.DependencyInjection
 
 ## Overview
@@ -31,14 +23,6 @@ FacilisDynamoDb.Extensions.DependencyInjection provides dependency injection ext
 - Dependency injection support
 - Simple configuration
 - Supports .NET Standard 2.0
-
-## Installation
-
-To install the package, add the following `PackageReference` to your `.csproj` file:
-
-```xml
-<PackageReference Include="FacilisDynamoDb.Extensions.DependencyInjection" Version="1.0.0" />
-```
 
 # FacilisDynamoDb.Tests.Utils
 
@@ -53,14 +37,6 @@ FacilisDynamoDb.Tests.Utils provides utility classes and constants to facilitate
 - Fixtures for setting up test environments
 - `AmazonDynamoDbFixture` for managing DynamoDB setup and teardown
 - `AmazonDynamoDbTestBase` for base test class with common DynamoDB test functionality
-
-## Installation
-
-To include this project in your solution, add a project reference in your `.csproj` file:
-
-```xml
-<PackageReference Include="FacilisDynamoDb.Tests.Utils\FacilisDynamoDb.Tests.Utils" Version="1.0.0" />
-```
 
 ## License
 
