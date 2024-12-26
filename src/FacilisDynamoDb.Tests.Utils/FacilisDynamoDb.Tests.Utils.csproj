@@ -11,6 +11,8 @@
         <GenerateDocumentationFile>True</GenerateDocumentationFile>
         <!-- If all members are not documented, you can disable the compiler warnings -->
         <NoWarn>$(NoWarn);CS1591</NoWarn>
+        <PackageProjectUrl>https://github.com/Freemantle01/facilis-dynamodb</PackageProjectUrl>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 
     <ItemGroup>
@@ -25,6 +27,9 @@
       <PackageReference Include="Moq" Version="4.20.72" />
       <PackageReference Include="Testcontainers" Version="4.1.0" />
       <PackageReference Include="xunit.extensibility.core" Version="2.9.2" />
+    </ItemGroup>
+    <ItemGroup>
+        <None Include="README.md" Pack="true" PackagePath=""/>
     </ItemGroup>
 
     <ItemGroup>

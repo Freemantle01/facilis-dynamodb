@@ -12,7 +12,12 @@
         <GenerateDocumentationFile>True</GenerateDocumentationFile>
         <!-- If all members are not documented, you can disable the compiler warnings -->
         <NoWarn>$(NoWarn);CS1591</NoWarn>
+        <PackageProjectUrl>https://github.com/Freemantle01/facilis-dynamodb</PackageProjectUrl>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
+    <ItemGroup>
+        <None Include="README.md" Pack="true" PackagePath=""/>
+    </ItemGroup>
     <ItemGroup>
         <PackageReference Include="AWSSDK.DynamoDBv2" Version="3.7.404" />
         <PackageReference Include="DotNet.ReproducibleBuilds" Version="1.2.25">
