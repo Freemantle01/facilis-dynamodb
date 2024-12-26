@@ -43,7 +43,7 @@ jobs:
         name: nuget
         if-no-files-found: error
         retention-days: 3
-        path: ${{ env.NuGetDirectory }}/*.nupkg
+        path: '**/*.nupkg'
 
   validate_nuget:
     runs-on: ubuntu-latest
