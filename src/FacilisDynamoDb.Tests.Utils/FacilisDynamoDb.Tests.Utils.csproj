@@ -4,7 +4,7 @@
         <Authors>Łukasz Dyraga</Authors>
         <Description>Simple AWS DynamoDb Repository</Description>
         <Copyright>Copyright Łukasz Dyraga</Copyright>
-        <PackageTags>aws;dynamodb;client;di;depedency;injection</PackageTags>
+        <PackageTags>aws;dynamodb;client;tests</PackageTags>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <TargetFramework>netstandard2.0</TargetFramework>
         <EnablePackageValidation>true</EnablePackageValidation>
@@ -24,17 +24,16 @@
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
-      <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
-      <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.2" />
-      <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="8.0.0" />
       <PackageReference Include="MinVer" Version="6.0.0">
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
+      <PackageReference Include="Moq" Version="4.20.72" />
+      <PackageReference Include="Testcontainers" Version="4.1.0" />
+      <PackageReference Include="xunit.extensibility.core" Version="2.9.2" />
     </ItemGroup>
-
     <ItemGroup>
-      <ProjectReference Include="..\FacilisDynamoDb\FacilisDynamoDb.csproj" />
+      <ProjectReference Include="..\..\src\FacilisDynamoDb.Extensions.DependencyInjection\FacilisDynamoDb.Extensions.DependencyInjection.csproj" />
     </ItemGroup>
 
 </Project>

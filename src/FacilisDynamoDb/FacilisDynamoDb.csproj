@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <Authors>Łukasz Dyraga</Authors>
+        <Description>Simple AWS DynamoDb Repository</Description>
+        <Copyright>Copyright Łukasz Dyraga</Copyright>
+        <PackageTags>aws;dynamodb;client;simple</PackageTags>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <TargetFrameworks>netstandard2.0;net8.0</TargetFrameworks>
+        <Features>strict</Features>
+        <EnablePackageValidation>true</EnablePackageValidation>
+        <GenerateDocumentationFile>True</GenerateDocumentationFile>
+        <!-- If all members are not documented, you can disable the compiler warnings -->
+        <NoWarn>$(NoWarn);CS1591</NoWarn>
+        <PackageProjectUrl>https://github.com/Freemantle01/facilis-dynamodb</PackageProjectUrl>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageIcon>logo.png</PackageIcon>
+    </PropertyGroup>
+    <ItemGroup>
+        <None Include="..\..\images\logo.png" Pack="true" PackagePath=""/>
+        <None Include="README.md" Pack="true" PackagePath=""/>
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="AWSSDK.DynamoDBv2" Version="3.7.404" />
+        <PackageReference Include="DotNet.ReproducibleBuilds" Version="1.2.25">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.1" />
+        <PackageReference Include="Microsoft.Extensions.Options" Version="8.0.2" />
+        <PackageReference Include="MinVer" Version="6.0.0">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="System.Text.Json" Version="8.0.5" />
+    </ItemGroup>
+</Project>

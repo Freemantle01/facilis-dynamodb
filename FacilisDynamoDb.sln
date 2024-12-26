@@ -1,7 +1,5 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FacilisDynamoDb", "src\FacilisDynamoDb\FacilisDynamoDb.csproj", "{DEAF9DE3-0DDA-4479-8EC7-22434DBA530C}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{53E5C365-8707-47A0-BDAE-6D0B24BF2C7C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{F8427DBE-56BD-4F2F-A57A-FF5AE3F10BAB}"
@@ -17,7 +15,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FacilisDynamoDb.Extensions.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FacilisDynamoDb.Tests", "tests\FacilisDynamoDb.Tests\FacilisDynamoDb.Tests.csproj", "{C75B20EF-20B1-40BB-833F-FF9E90BE4848}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FacilisDynamoDb.Tests.Utils", "tests\FacilisDynamoDb.Tests.Utils\FacilisDynamoDb.Tests.Utils.csproj", "{1FDFA4C1-EFFA-4C87-8868-7AEFF8687189}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FacilisDynamoDb", "src\FacilisDynamoDb\FacilisDynamoDb.csproj", "{1B45F91D-27B6-479C-9553-C3A0486D1146}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FacilisDynamoDb.Tests.Utils", "src\FacilisDynamoDb.Tests.Utils\FacilisDynamoDb.Tests.Utils.csproj", "{FD10EE87-59D9-4494-912B-149F9B00AEBC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "readmes", "readmes", "{136BE672-B68F-4B1A-BB46-4596CCDEA4E6}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "github", "github", "{71741F78-41F9-49C4-987C-DAE56714CEA6}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\publish.yml = .github\workflows\publish.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +35,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DEAF9DE3-0DDA-4479-8EC7-22434DBA530C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DEAF9DE3-0DDA-4479-8EC7-22434DBA530C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DEAF9DE3-0DDA-4479-8EC7-22434DBA530C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DEAF9DE3-0DDA-4479-8EC7-22434DBA530C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B7147AED-6E1F-448C-93B3-D955B94AB695}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B7147AED-6E1F-448C-93B3-D955B94AB695}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7147AED-6E1F-448C-93B3-D955B94AB695}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -41,16 +47,20 @@ Global
 		{C75B20EF-20B1-40BB-833F-FF9E90BE4848}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C75B20EF-20B1-40BB-833F-FF9E90BE4848}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C75B20EF-20B1-40BB-833F-FF9E90BE4848}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1FDFA4C1-EFFA-4C87-8868-7AEFF8687189}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1FDFA4C1-EFFA-4C87-8868-7AEFF8687189}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1FDFA4C1-EFFA-4C87-8868-7AEFF8687189}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1FDFA4C1-EFFA-4C87-8868-7AEFF8687189}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B45F91D-27B6-479C-9553-C3A0486D1146}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B45F91D-27B6-479C-9553-C3A0486D1146}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B45F91D-27B6-479C-9553-C3A0486D1146}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B45F91D-27B6-479C-9553-C3A0486D1146}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD10EE87-59D9-4494-912B-149F9B00AEBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD10EE87-59D9-4494-912B-149F9B00AEBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD10EE87-59D9-4494-912B-149F9B00AEBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD10EE87-59D9-4494-912B-149F9B00AEBC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{DEAF9DE3-0DDA-4479-8EC7-22434DBA530C} = {53E5C365-8707-47A0-BDAE-6D0B24BF2C7C}
 		{B7147AED-6E1F-448C-93B3-D955B94AB695} = {F8427DBE-56BD-4F2F-A57A-FF5AE3F10BAB}
 		{F3178EA0-204B-4248-AFB5-F756582C0FD5} = {53E5C365-8707-47A0-BDAE-6D0B24BF2C7C}
 		{C75B20EF-20B1-40BB-833F-FF9E90BE4848} = {54519F12-27F9-454D-8D8E-B49678EC152C}
-		{1FDFA4C1-EFFA-4C87-8868-7AEFF8687189} = {54519F12-27F9-454D-8D8E-B49678EC152C}
+		{1B45F91D-27B6-479C-9553-C3A0486D1146} = {53E5C365-8707-47A0-BDAE-6D0B24BF2C7C}
+		{FD10EE87-59D9-4494-912B-149F9B00AEBC} = {53E5C365-8707-47A0-BDAE-6D0B24BF2C7C}
 	EndGlobalSection
 EndGlobal
