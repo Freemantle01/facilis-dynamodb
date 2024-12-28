@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <Authors>Łukasz Dyraga</Authors>
-        <Description>Simple AWS DynamoDb Repository</Description>
+        <Description>Simple AWS DynamoDb client</Description>
         <Copyright>Copyright Łukasz Dyraga</Copyright>
         <PackageTags>aws;dynamodb;client;di;depedency;injection</PackageTags>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>

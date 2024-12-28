@@ -119,7 +119,7 @@ public class TodoEntity : IIdentity
     public bool IsComplete { get; set; }
 }
 
-[JsonSerializable(typeof(IEnumerable<TodoEntity>))]
+[JsonSerializable(typeof(List<TodoEntity>))]
 [JsonSerializable(typeof(TodoEntity))]
 [JsonSerializable(typeof(Identity))]
 internal partial class AppJsonSerializerContext : JsonSerializerContext

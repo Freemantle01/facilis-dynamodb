@@ -2,7 +2,7 @@
 
 ## Overview
 
-FacilisDynamoDb is a simple AWS DynamoDB repository for .NET applications. It provides a straightforward way to interact with DynamoDB, including basic CRUD operations and table management.
+FacilisDynamoDb is a simple AWS DynamoDB client for .NET applications. It provides a straightforward way to interact with DynamoDB, including basic CRUD operations and table management.
 
 ## Features
 
