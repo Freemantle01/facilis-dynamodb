@@ -2,7 +2,7 @@
 
 ## Overview
 
-FacilisDynamoDb.Extensions.DependencyInjection is a simple AWS DynamoDB repository that provides dependency injection extensions for .NET applications. It simplifies the integration of AWS DynamoDB with .NET applications by providing easy-to-use services and configurations.
+FacilisDynamoDb.Extensions.DependencyInjection is a simple AWS DynamoDB client that provides dependency injection extensions for .NET applications. It simplifies the integration of AWS DynamoDB with .NET applications by providing easy-to-use services and configurations.
 
 ## Features
 
