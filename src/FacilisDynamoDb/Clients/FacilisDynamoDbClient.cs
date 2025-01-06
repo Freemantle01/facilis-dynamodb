@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text.Json;
 using System.Threading;
@@ -111,6 +112,7 @@ namespace FacilisDynamoDb.Clients
             var output = new List<TEntity>();
             do
             {
+                Stopwatch stopwatch = Stopwatch.StartNew();
                 var queryRequest = new QueryRequest()
                 {
                     TableName = _tableOptions.Value.Name,
@@ -126,14 +128,19 @@ namespace FacilisDynamoDb.Clients
                     ExclusiveStartKey = lastKeyEvaluated,
                     ReturnConsumedCapacity = ReturnConsumedCapacity.TOTAL 
                 };
-            
+                
                 QueryResponse response = await _amazonDynamoDb.QueryAsync(queryRequest,
                     cancellationToken);
-
+                stopwatch.Stop();
+                _logger.LogInformation("QueryAsync Elapsed: {Elapsed}", stopwatch.ElapsedMilliseconds);
+                
                 _logger.LogConsumedCapacity(response.ConsumedCapacity, "GetAllEntities");
-
+                
+                stopwatch.Restart();
                 output.AddRange(response.Items.Select(item 
                     => JsonSerializer.Deserialize<TEntity>(Document.FromAttributeMap(item).ToJson(), _jsonSerializerOptions)));
+                stopwatch.Stop();
+                _logger.LogInformation("Deserialize Elapsed: {Elapsed}", stopwatch.ElapsedMilliseconds);
 
                 lastKeyEvaluated = response.LastEvaluatedKey;
             
